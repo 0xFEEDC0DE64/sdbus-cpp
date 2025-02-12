@@ -25,7 +25,7 @@ public:
 
         if (poll_data.timeout_usec != UINT64_MAX) {
             timer_.async_wait([this](boost::system::error_code const&) { processTimeout(); });
-            timer_.expires_from_now(boost::posix_time::microsec(poll_data.timeout_usec));
+            timer_.expires_after(boost::posix_time::microsec(poll_data.timeout_usec));
         }
     }
 
